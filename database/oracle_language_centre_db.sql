@@ -1,8 +1,7 @@
--- Create the database
 CREATE DATABASE IF NOT EXISTS oracle_language_centre_db;
 USE oracle_language_centre_db;
 
--- Users table
+
 CREATE TABLE users (
   user_id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100),
@@ -13,7 +12,7 @@ CREATE TABLE users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Courses table
+
 CREATE TABLE courses (
   course_id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(100),
@@ -22,7 +21,7 @@ CREATE TABLE courses (
   fee DECIMAL(10,2)
 );
 
--- Enrollments table
+
 CREATE TABLE enrollments (
   enrollment_id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
@@ -33,7 +32,7 @@ CREATE TABLE enrollments (
   FOREIGN KEY (course_id) REFERENCES courses(course_id)
 );
 
--- Payments table
+
 CREATE TABLE payments (
   payment_id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
@@ -44,7 +43,7 @@ CREATE TABLE payments (
   FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
--- Feedback table
+
 CREATE TABLE user_feedback (
   feedback_id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
@@ -56,7 +55,7 @@ CREATE TABLE user_feedback (
   FOREIGN KEY (course_id) REFERENCES courses(course_id)
 );
 
--- Attendance table
+
 CREATE TABLE attendance (
   attendance_id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
@@ -67,7 +66,7 @@ CREATE TABLE attendance (
   FOREIGN KEY (course_id) REFERENCES courses(course_id)
 );
 
--- Certificates table
+
 CREATE TABLE certificates (
   certificate_id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
@@ -78,7 +77,7 @@ CREATE TABLE certificates (
   FOREIGN KEY (course_id) REFERENCES courses(course_id)
 );
 
--- Materials table
+
 CREATE TABLE materials (
   material_id INT AUTO_INCREMENT PRIMARY KEY,
   course_id INT,
